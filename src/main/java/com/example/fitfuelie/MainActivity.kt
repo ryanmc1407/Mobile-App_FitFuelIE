@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.example.fitfuelie.navigation.AppNavHost
 import com.example.fitfuelie.ui.theme.FitFuelIETheme
 
 class MainActivity : ComponentActivity() {
@@ -20,7 +22,9 @@ class MainActivity : ComponentActivity() {
        // Everything on screen goes inside here
         setContent {
             FitFuelIETheme {
-                FitFuelIEApp()
+                val navController = rememberNavController() // Creates a NavController
+
+                AppNavHost(navController = navController)  // passes in the controller
             }
         }
     }
